@@ -1,0 +1,9 @@
+<div class="search-container">
+  <label for="search">Search Text </label>
+  <input #wiki (keydown.enter)="search(wiki.value)" type="text" id="search" value="Звездные врата">
+<button type="button" (click)="search(wiki.value)">Search</button>
+</div>
+<div class="link-container" *ngFor="let item of items$ | async ">
+  <p><a [href]="item.link" target="_blank">{{item.name}}</a></p>
+  <p *ngIf="item.description">{{item.description}}</p>
+</div>
